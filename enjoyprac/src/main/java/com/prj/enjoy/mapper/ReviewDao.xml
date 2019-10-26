@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.enjoy.review.dao.ReviewDao">
+
+	<select id="review_list" resultType="com.prj.enjoy.review.dto.ReviewDto">
+		SELECT RVTITLE, CUNUM, SBCODE, RVDATE, RVCONTENT, RVPIC, RVSTAR FROM REVIEW
+	</select>
+	<insert id="review_write">
+		INSERT INTO
+		REVIEW(RVTITLE,RVSTAR,RVCONTENT,RVPIC, RVDATE)
+		VALUES(#{param1},#{param2},#{param3},#{param4}, SYSDATE)
+	</insert>
+	
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper
+	    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.enjoy.qna.dao.QnaDao">
+
+	<select id="qnalist" resultType="com.prj.enjoy.qna.dto.QnaDto">
+		SELECT
+		QANUM,QATITLE,QAGROUP,QASTEP,QAINDENT,QADATE,QACONTENT,SBCODE,BUNUM,BUID,CUNUM,CUID
+		FROM QNA
+		ORDER BY QANUM DESC
+
+	</select>
+
+	<insert id="qnawrite">
+		INSERT INTO
+		QNA(QANUM,QATITLE,QACONTENT,CUID)
+		VALUES
+		(QNA_SEQ.nextval,#{param1},#{param2},#{param3})
+
+	</insert>
+	<select id="qacontview" resultType="com.prj.enjoy.qna.dto.QnaDto">
+		SELECT *FROM QNA WHERE QANUM=
+		#{param1}
+	</select>
+
+	<delete id="qnadelete">
+		DELETE FROM QNA WHERE QANUM = #{param1}
+	</delete>
+</mapper>
